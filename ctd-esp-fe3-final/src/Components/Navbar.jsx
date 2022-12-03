@@ -10,10 +10,10 @@ const Navbar = () => {
     <div>
       <nav>
       {/* Aqui deberan agregar los liks correspondientes a las rutas definidas */}
-      {/* Deberan implementar ademas la logica para cambiar de Theme con el button */}
       <Link to='/home'>Home</Link> {" "}
       <Link to='/contacto'>Contacto</Link> {" "}
       <Link to='/favs'>Favs</Link> {" "}
+      {/* Deberan implementar ademas la logica para cambiar de Theme con el button */}
       <button>Change theme</button>
     </nav>
     <Outlet/>
