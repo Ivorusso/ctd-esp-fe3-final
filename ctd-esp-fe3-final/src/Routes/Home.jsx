@@ -7,9 +7,9 @@ import {Outlet} from 'react-router-dom'
 const Home = () => {
   return (
     <main className="" >
-      <Outlet/>
       <h1>Home</h1>
       <div className='card-grid'>
+         <Card/>
         {/* Aqui deberias renderizar las cards */}
       </div>
     </main>
