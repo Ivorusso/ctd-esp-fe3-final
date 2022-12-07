@@ -1,12 +1,11 @@
 import React, { useEffect, useState } from "react";
-import Card from "../Components/Card";
 
 //Este componente debera ser estilado como "dark" o "light" dependiendo del theme del Context
 
 const Favs = () => {
   const [dentista, setDentista] = useState([]);
   useEffect(() => {
-    const data = localStorage.getItem("DentistaFav");
+    const data = localStorage.getItem("dentistaFav");
     setDentista(JSON.parse(data));
   },[]);
 
