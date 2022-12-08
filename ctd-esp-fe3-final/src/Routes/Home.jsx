@@ -2,9 +2,6 @@ import React, { useEffect, useState } from "react";
 import Card from "../Components/Card";
 import { Outlet } from "react-router-dom";
 
-
-//Este componente debera ser estilado como "dark" o "light" dependiendo del theme del Context
-
 const Home = () => {
   const [dentists, setdentist] = useState([]);
 
@@ -23,9 +20,7 @@ const Home = () => {
       <Outlet />
       <div className="card-grid">
         {dentists.length
-          ? dentists.map((dentist) => (
-                <Card key={dentist.id} data={dentist} />
-            ))
+          ? dentists.map((dentist) => <Card key={dentist.id} data={dentist} />)
           : null}
       </div>
     </>
