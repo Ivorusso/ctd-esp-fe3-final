@@ -27,10 +27,10 @@ const Detail = () => {
         <div className="card-grid">
           <div className="card">
             <h2>Dentista Numero....{dentistId}</h2>
-            <p>{dentist.name}</p>
-            <p>{dentist.email}</p>
-            <p>{dentist.phone} </p>
-            <p>{dentist.website} </p>
+            <p>Nombre: {dentist.name}</p>
+            <p>Email: {dentist.email}</p>
+            <p>Telefono: {dentist.phone} </p>
+            <p>Web: {dentist.website} </p>
             <button onClick={() => navigate(-1)}>Go back</button>
           </div>
         </div>
