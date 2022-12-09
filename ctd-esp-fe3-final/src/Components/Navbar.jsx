@@ -1,21 +1,22 @@
-import React from 'react'
-import {Link} from 'react-router-dom'
-import {Outlet} from 'react-router-dom'
+import React from "react";
+import { globalContextUse } from "./utils/global.context";
+import { Link } from "react-router-dom";
 
 const Navbar = () => {
-
+  const { theme, dispatchTheme } = globalContextUse();
+  const handleTheme = () => {
+    dispatchTheme({ type: theme.color === "light" ? "SET_DARK" : "SET_LIGHT" });
+  };
 
   return (
-    <div>
-      <nav>
+    <nav className={theme.color}>
       <Link to='/home'>Home</Link> {" "}
       <Link to='/contacto'>Contacto</Link> {" "}
       <Link to='/favs'>Favs</Link> {" "}
-      <button>Change theme</button>
-    </nav>
-    <Outlet/>
-    </div>
-  )
-}
+      <button onClick={handleTheme}>Change theme</button>
 
-export default Navbar
+    </nav>
+  );
+};
+
+export default Navbar;

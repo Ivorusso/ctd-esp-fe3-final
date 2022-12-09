@@ -1,22 +1,23 @@
-import { Routes, Route } from "react-router-dom";
+import { Route, Routes } from "react-router-dom";
 import Footer from "./Components/Footer";
 import Navbar from "./Components/Navbar";
-import Home from "./Routes/Home";
 import Detail from "./Routes/Detail";
-import Contact from "./Routes/Contact";
 import Favs from "./Routes/Favs";
+import Home from "./Routes/Home";
+import Contact from "./Routes/Contact";
+import { links } from "./Components/utils/links";
 
 function App() {
+  const { home, contacto, favs, dentista } = links;
+
   return (
     <div className="App">
-      {/* <Navbar/> */}
+      <Navbar />
       <Routes>
-        <Route path="/" element={<Navbar />}>
-          <Route path="/home" element={<Home />} />
-          <Route path="/home/dentist/:dentistId" element={<Detail />} />
-          <Route path="/contacto" element={<Contact />} />
-          <Route path="/favs" element={<Favs />} />
-        </Route>
+        <Route path={home.path} element={<Home />} />
+        <Route path={`${dentista.path}`} element={<Detail />} />
+        <Route path={favs.path} element={<Favs />} />
+        <Route path={contacto.path} element={<Contact />} />
       </Routes>
       <Footer />
     </div>

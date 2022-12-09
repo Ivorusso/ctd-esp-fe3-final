@@ -1,8 +1,10 @@
 import React, { useEffect, useState } from "react";
 import Card from "../Components/Card";
 import { Outlet } from "react-router-dom";
+import { globalContextUse } from "../Components/utils/global.context";
 
 const Home = () => {
+  const { theme } = globalContextUse();
   const [dentists, setdentist] = useState([]);
 
   const getDentist = async () => {
@@ -18,11 +20,15 @@ const Home = () => {
   return (
     <>
       <Outlet />
-      <div className="card-grid">
-        {dentists.length
-          ? dentists.map((dentist) => <Card key={dentist.id} data={dentist} />)
-          : null}
-      </div>
+      <main className={theme.color}>
+        <div className="card-grid">
+          {dentists.length
+            ? dentists.map((dentist) => (
+                <Card key={dentist.id} data={dentist} />
+              ))
+            : null}
+        </div>
+      </main>
     </>
   );
 };

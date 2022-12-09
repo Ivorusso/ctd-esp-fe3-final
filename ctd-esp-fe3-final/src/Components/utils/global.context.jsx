@@ -1,15 +1,33 @@
-import { createContext } from "react";
+import { createContext, useContext, useReducer } from "react";
 
-export const initialState = {theme: "", data: []}
+const initialThemeState = { color: "light" };
 
-export const ContextGlobal = createContext(undefined);
+const EstadosGlobales = createContext();
 
-export const ContextProvider = ({ children }) => {
-  //Aqui deberan implementar la logica propia del Context, utilizando el hook useMemo
+const themeReducer = (state, action) => {
+  switch (action.type) {
+    case "SET_LIGHT":
+      return { ...state, color: "light" };
+    case "SET_DARK":
+      return { ...state, color: "dark" };
+    default:
+      return state;
+  }
+};
+const EstadosGlobalesProvider = ({ children }) => {
+  const [theme, dispatchTheme] = useReducer(themeReducer, initialThemeState);
+
+  const value = {
+    theme,
+    dispatchTheme,
+  };
 
   return (
-    <ContextGlobal.Provider value={{}}>
+    <EstadosGlobales.Provider value={value}>
       {children}
-    </ContextGlobal.Provider>
+    </EstadosGlobales.Provider>
   );
 };
+
+export default EstadosGlobalesProvider;
+export const globalContextUse = () => useContext(EstadosGlobales);
