@@ -46,10 +46,10 @@ const Form = () => {
       <form id="form" onSubmit={handlesubmit}>
           <label> Nombre completo</label>
           <input type="text" required onChange={validarNombre}/>
-          {errors.nombre && <span className="error"> El nombre debe tener mas de 5 caracteres y no tener caracteres especiales</span>}
+          {errors.nombre && <span className="error" style={{color: "red"}}> El nombre debe tener mas de 5 caracteres y no tener caracteres especiales</span>}
           <label> Email</label>
           <input type="email" required onChange={validarEmail}/>
-          {errors.email && <span className="error">El email no es valido</span>}
+          {errors.email && <span className="error" style={{color: "red"}}>El email no es valido</span>}
           <button type="submit">Enviar</button>
       </form>
 
